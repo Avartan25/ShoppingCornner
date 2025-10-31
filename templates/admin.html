@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Cursive:wght@400..700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alan+Sans:wght@300..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      .font-Cursive {
+        font-family: "Edu NSW ACT Cursive", cursive;
+      }
+      .font-Sans {
+        font-family: "Alan Sans", sans-serif;
+      }
+    </style>
+  </head>
+  <body class="font-Sans">
+    <header class="bg-gray-800 text-white p-4 flex">
+      <h1
+        class="text-lg sm:text-2xl font-bold my-[auto] ml-5 font-Cursive hover:scale-105 transition-transform duration-300"
+      >
+        Shopping Corner
+      </h1>
+      <!-- Mobile view -->
+      <button
+        id="menu-btn"
+        class="sm:hidden text-3xl focus:outline-none ml-[auto]"
+      >
+        ☰
+      </button>
+
+      <!-- laptop view -->
+      <ul class="hidden sm:flex space-x-4 text-xl my-[auto] ml-[auto] mr-5">
+        <li class="inline-block ml-6">
+          <a href="{{ url_for('about') }}" class="hover:text-sky-500">Home</a>
+        </li>
+        <li class="inline-block ml-6">
+          <a href="{{ url_for('category') }}" class="hover:text-sky-500">Category</a>
+        </li>
+        <li class="inline-block ml-6">
+          <a href="{{ url_for('contact') }}" class="hover:text-sky-500">Contact</a>
+        </li>
+      </ul>
+    </header>
+
+    <main class="">
+      <div
+        id="dropdown"
+        class="hidden flex flex-col items-center space-y-4 p-4 bg-gray-800 text-white"
+      >
+        <a href="{{ url_for('home') }}" class="hover:text-yellow-400 transition">Home</a>
+        <a href="{{ url_for('category') }}" class="hover:text-yellow-400 transition"
+          >category</a
+        >
+        <a href="{{ url_for('profile') }}" class="hover:text-yellow-400 transition">profile</a>
+        <a href="{{ url_for('contact') }}" class="hover:text-yellow-400 transition">Contact</a>
+      </div>
+
+      
+
+</footer>
+<script>
+      // mobile view menu toggle
+    const menuBtn = document.getElementById('menu-btn');
+    const dropdown = document.getElementById('dropdown');
+    menuBtn.addEventListener('click', () => {
+        dropdown.classList.toggle('hidden'); // show/hide menu
+    });
+</script>
+  </body>
+</html>

@@ -1,0 +1,151 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Cursive:wght@400..700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alan+Sans:wght@300..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      .font-Cursive {
+        font-family: "Edu NSW ACT Cursive", cursive;
+      }
+      .font-Sans {
+        font-family: "Alan Sans", sans-serif;
+      }
+    </style>
+  </head>
+  <body class="font-Sans">
+    <header class="bg-gray-800 text-white p-4 flex">
+      <h1
+        class="text-md sm:text-2xl font-bold my-[auto] ml-5 font-Cursive hover:scale-105 transition-transform duration-300"
+      >
+        Shopping Corner
+      </h1>
+      <!-- Mobile view -->
+      <button
+        id="menu-btn"
+        class="sm:hidden text-3xl focus:outline-none ml-[auto]"
+      >
+        ☰
+      </button>
+
+      <!-- laptop view -->
+      <ul class="hidden sm:flex space-x-4 text-xl my-[auto] ml-[auto] mr-5">
+        <li class="inline-block ml-6">
+          <a href="{{ url_for('home') }}" class="hover:text-sky-500">Home</a>
+        </li>
+        <li class="inline-block ml-6">
+          <a href="{{ url_for('category') }}" class="hover:text-sky-500">Category</a>
+        </li>
+        <li class="inline-block ml-6">
+          <a href="{{ url_for('about') }}" class="hover:text-sky-500">About</a>
+        </li>
+      </ul>
+    </header>
+
+    <main class="">
+      <div
+        id="dropdown"
+        class="hidden flex flex-col items-center space-y-4 p-4 bg-gray-800 text-white"
+      >
+        <a href="/" class="hover:text-yellow-400 transition">Home</a>
+        <a href="{{ url_for('category') }}" class="hover:text-yellow-400 transition"
+          >Category</a
+        >
+        <a href="{{ url_for('about') }}" class="hover:text-yellow-400 transition">About Us</a>
+        <a href="{{ url_for('index') }}" class="hover:text-yellow-400 transition">Sign out</a>
+      </div>
+
+      <div class="bg-[url(/static/img/Contact_page_bg.jpg)] bg-cover bg-center sm:ml-auto sm:size-[100vh] min-h-screen  sm:mt-[10vh] "></div>
+      <div id="contact-form" class="mx-15 mt-[-95vh] mb-5 shadow-black shadow-md sm:mt-[-45%] sm:absolute bg-black/25 backdrop-blur-[3.5px] md:mt-[-95vh] xl:px-[8vh] xl:ml-[20vh] xl:mt-[-95vh]">
+          <form method="post" action="/contact" class="max-w-lg mx-auto  p-10 sm:px-20 sm:py-2.5 rounded shadow ">
+            <h2 class="text-3xl font-bold text-center  mb-4 underline sm:mt-5  stock-2">Contact Us</h2>
+            {{msg}}
+          <div class="mb-4">
+            <label class="block font-semibold mb-2 " for="name">Name</label>
+            <input
+              class="w-full px-3 py-2 border rounded "
+              type="text"
+              id="name"
+              name="name"
+              required
+            />
+          </div>
+          <div class="mb-4">
+            <label class="block font-semibold mb-2" for="email">Email</label>
+            <input
+              class="w-full px-3 py-2 border rounded"
+              type="email"
+              id="email"
+              name="email"
+              required
+            />
+          </div>
+          <div class="mb-4">
+            <label class="block font-semibold mb-2" for="message"
+              >Message</label
+            >
+            <textarea
+              class="w-full px-3 py-2 border rounded"
+              id="message"
+              name="message"
+              rows="5"
+              required
+            ></textarea>
+          </div>
+          <button
+            class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition mx-auto block "
+            type="submit"
+          >
+            Submit
+          </button>
+        </form>
+
+    </main>
+
+<footer class="bg-gray-800 text-white py-8 px-2">
+
+    <div class="text-center space-y-5">
+        <h1 class="text-2xl font-bold font-Cursive text-white tracking-wide">Shopping Corner</h1>
+
+        <p class="text-sm text-gray-400 leading-tight">
+            Best Quality · Fast Delivery · Trusted Store
+        </p>
+
+        <div class="flex justify-center space-x-5 mt-3">
+            <a href="#" aria-label="Facebook">
+                <img src="/static/img/Social_media/facebook.png" class="w-6 h-6 opacity-80 hover:opacity-100 transition" alt="Facebook">
+            </a>
+            <a href="#" aria-label="Instagram">
+                <img src="/static/img/Social_media/instagram.png" class="w-6 h-6 opacity-80 hover:opacity-100 transition" alt="Instagram">
+            </a>
+            <a href="#" aria-label="Gmail">
+                <img src="/static/img/Social_media/Gmail_logo.png" class="w-6 h-6 opacity-80 hover:opacity-100 transition" alt="Gmail">
+            </a>
+        </div>
+
+        <div class="flex justify-center text-sm gap-6 mt-5">
+            <a href="#" class="hover:text-white transition-colors">Home</a>
+            <a href="#" class="hover:text-white transition-colors">Shop</a>
+            <a href="#" class="hover:text-white transition-colors">Contact</a>
+        </div>
+
+        <div class="border-t border-gray-700 mt-6"></div>
+
+        <p class="text-xs text-gray-500 mt-4">
+            © 2025 Shopping Corner. All rights reserved.
+        </p>
+    </div>
+
+</footer>
+  </body>
+</html>
